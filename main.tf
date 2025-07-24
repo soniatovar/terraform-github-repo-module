@@ -24,8 +24,8 @@ resource "github_branch_protection" "main" {
     pattern         = var.default_branch
 
     required_pull_request_reviews {
-        count       = var.require_approvals ? 1 : 0
-        required_approving_review_count = 1
+        dismiss_stale_reviews           = true
+        required_approving_review_count = var.require_approvals ? 1 : 0
     }
 
     enforce_admins  = true
